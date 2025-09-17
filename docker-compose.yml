@@ -1,0 +1,9 @@
+services:
+  cqc-monitor:
+    build: .
+    container_name: cqc-monitor
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./servers.json:/app/servers.json
