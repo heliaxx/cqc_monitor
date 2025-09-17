@@ -1,6 +1,6 @@
-# CQC Monitor MultiServer Discord Bot
+# CQC Monitor Multi-Server Discord Bot
 
-A Discord bot for monitoring Elite:Dangerous CQC squadrons activity and posting updates to multiple servers/channels. Supports slash commands on discord and Docker deployment.
+A Discord bot for monitoring Elite:Dangerous CQC squadrons activity and posting updates to multiple servers/channels.
 
 ## Features
 - Fetches CQC activity from https://sapi.demb.uk/api/leaderboard/cqc/platform/pc and posts updates as Discord embeds
