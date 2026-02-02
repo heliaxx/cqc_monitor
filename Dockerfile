@@ -4,6 +4,13 @@ FROM python:3.11-slim
 # Set work directory
 WORKDIR /app
 
+# Build dependences for aiohttp on arm/v7
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    python3-dev \
+    libffi-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 # Install dependencies from requirements.txt
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
