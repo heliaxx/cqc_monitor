@@ -127,17 +127,18 @@ async def format_diff(data):
     timestamps = []
 
     # Squadrons you want to highlight: { "Name": "Emoji" }
-    special_squadrons = {
+    highlighted_squadrons = {
         "WE ROCK YOU ROLL": "🔸",
     }
 
     for change in data:
         squad = change.get("squadron_name", "Unknown")
+        squad_tag = change.get("tag", "Unknown")
         diff = change.get("total_experience_diff", 0)
         ts = change.get("timestamp", "")
 
-        emoji = special_squadrons.get(squad, "🔹")
-        squads.append(f"{emoji} {squad} gained {diff:,} points")
+        emoji = highlighted_squadrons.get(squad, "🔹")
+        squads.append(f"{emoji} {squad} ({squad_tag}) gained {diff:,} points")
         timestamps.append(ts)
 
     timestamp = timestamps[-1] if timestamps else None
