@@ -313,7 +313,7 @@ async def on_guild_remove(guild):
 @bot.tree.command(name="cqc_status", description="Check CQC bot status and statistics (Admin only)")
 @discord.app_commands.guild_only()
 async def cqc_status(interaction: discord.Interaction):
-    if not interaction.user.guild_permissions.administrator:
+    if not interaction.permissions.administrator:
         await interaction.response.send_message("Only an administrator can use this command. This incident will be reported.", ephemeral=True)
         return
     active_servers = db.get_active_servers()
@@ -357,7 +357,7 @@ async def cqc_status(interaction: discord.Interaction):
 @discord.app_commands.describe(channel="Channel for CQC notifications (optional)")
 @discord.app_commands.guild_only()
 async def cqc_channel(interaction: discord.Interaction, channel: discord.TextChannel = None):
-    if not interaction.user.guild_permissions.administrator:
+    if not interaction.permissions.administrator:
         await interaction.response.send_message("Only an administrator can use this command. This incident will be reported.", ephemeral=True)
         return
     target_channel = channel or interaction.channel
@@ -371,7 +371,7 @@ async def cqc_channel(interaction: discord.Interaction, channel: discord.TextCha
 @bot.tree.command(name="cqc_enable", description="Enable CQC notifications (Admin only)")
 @discord.app_commands.guild_only()
 async def cqc_enable(interaction: discord.Interaction):
-    if not interaction.user.guild_permissions.administrator:
+    if not interaction.permissions.administrator:
         await interaction.response.send_message("Only an administrator can use this command. This incident will be reported.", ephemeral=True)
         return
     db.enable_server(interaction.guild.id)
@@ -381,7 +381,7 @@ async def cqc_enable(interaction: discord.Interaction):
 @bot.tree.command(name="cqc_disable", description="Disable CQC notifications (Admin only)")
 @discord.app_commands.guild_only()
 async def cqc_disable(interaction: discord.Interaction):
-    if not interaction.user.guild_permissions.administrator:
+    if not interaction.permissions.administrator:
         await interaction.response.send_message("Only an administrator can use this command. This incident will be reported.", ephemeral=True)
         return
     db.disable_server(interaction.guild.id)
@@ -430,7 +430,7 @@ async def cqc_bugs(interaction: discord.Interaction):
 @bot.tree.command(name="cqc_this_channel", description="Set the current channel for CQC notifications (Admin only)")
 @discord.app_commands.guild_only()
 async def cqc_this_channel(interaction: discord.Interaction):
-    if not interaction.user.guild_permissions.administrator:
+    if not interaction.permissions.administrator:
         await interaction.response.send_message("Only an administrator can use this command. This incident will be reported.", ephemeral=True)
         return
     channel = interaction.channel
