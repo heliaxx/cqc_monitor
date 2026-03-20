@@ -11,7 +11,7 @@ A Discord bot for monitoring Elite:Dangerous CQC squadrons activity and posting 
 
 ## Add CQC Monitor to your server
 
-To add CQC Monitor to your server, click this [link](https://discord.com/oauth2/authorize?client_id=1414630165706706974&permissions=2147568640&integration_type=0&scope=bot)
+To add CQC Monitor to your server, click this [link]([https://discord.com/oauth2/authorize?client_id=1414630165706706974&permissions=2147568640&integration_type=0&scope=bot](https://discord.com/oauth2/authorize?client_id=1415028193299267635&permissions=84992&integration_type=0&scope=bot))
 
 On Discord, select which server you want the bot to be added to. After confirming, the bot will be added and you can interact with it via the slash commands.
 
